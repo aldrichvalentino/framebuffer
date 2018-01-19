@@ -3,17 +3,27 @@
 #include <stdio.h>
 
 #include "printChar.h"
+#include "printName.h"
 
 int main()
 {
     int x = 0, y = 0;
     int i;
-
-    for(y = 500; y >= 0; ){
-        //scanf("%d", &y);
-        printChar('a',255,255,255,150,y);
-        y = y - 2;
+    char *Name;
+    
+    
+    Name = (char*) malloc(4);
+    Name[0] = 'a';
+    Name[1] = 'a';
+    Name[2] = 'a';
+    Name[3] = 'a';
+    
+    
+    for(y = 500; y >= 0; y--){
+        printName(Name, 4, 016, 253, 150, y);
     }
+
+
 
     // char character[50][50];
     // for(x = 0; x < 50; x++){

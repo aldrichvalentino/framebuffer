@@ -39,7 +39,7 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
         exit(3);
     }
 
-    printf("%dx%d, %dbpp\n", vinfo.xres, vinfo.yres, vinfo.bits_per_pixel);
+    //printf("%dx%d, %dbpp\n", vinfo.xres, vinfo.yres, vinfo.bits_per_pixel);
 
     // Figure out the size of the screen in bytes
     screensize = vinfo.xres * vinfo.yres * vinfo.bits_per_pixel / 8;
@@ -53,8 +53,8 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
 
     // Gets from external file
     FILE *file;
-    int buffer = 20;
-    char A[buffer][buffer];
+    int buffer = 171;
+    char A[buffer][buffer]; 
     file = fopen("characters/test.txt", "r");
     if(file){
         for(x = 0; x < buffer; x++){
@@ -65,6 +65,13 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
         }
     }
 
+    // for(x = 0; x < buffer; x++){
+    //         for(y = 0; y < buffer; y++){
+    //             printf("%c", A[x][y]);
+    //         }
+    //         printf("\n");
+    //     }
+
     // Figure out where in memory to put the pixel
     for (y = ordinat; y < ordinat+buffer; y++)
         for (x = axis; x < axis+buffer; x++) {
@@ -73,7 +80,7 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
                        (y+vinfo.yoffset) * finfo.line_length;
 
                 // vinfo.bits_per_pixel == 32 && 
-                if (A[y-ordinat][x-axis] == '.' ) {
+                if (A[y-ordinat][x-axis] != ' ' && A[y-ordinat][x-axis] != '\10') {
                     
                 *(fbp + location) = Blue;        // Some blue
                 *(fbp + location + 1) = Green;     // A little green
@@ -97,31 +104,31 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
             
         }
 	
-    //delay
-    for(timer = 0; timer < 10000000; timer++);
+    // //delay
+    // for(timer = 0; timer < 10000000; timer++);
 
-    //clear the screen
-    for (y = ordinat; y < ordinat+50; y++)
-        for (x = axis; x < axis+50; x++) {
+    // //clear the screen
+    // for (y = ordinat; y < ordinat+buffer; y++)
+    //     for (x = axis; x < axis+buffer; x++) {
 
-            location = (x+vinfo.xoffset) * (vinfo.bits_per_pixel/8) +
-                       (y+vinfo.yoffset) * finfo.line_length;
+    //         location = (x+vinfo.xoffset) * (vinfo.bits_per_pixel/8) +
+    //                    (y+vinfo.yoffset) * finfo.line_length;
                        
-            if (vinfo.bits_per_pixel == 32) {
-                *(fbp + location) = 0;        //Blue
-                *(fbp + location + 1) = 0;    //Green
-                *(fbp + location + 2) = 0;    //Red
-                *(fbp + location + 3) = 0;    //transparency
-        //location += 4;
-            } else  { //assume 16bpp
-                int b = 0;
-                int g = 0;   
-                int r = 0;   
-                unsigned short int t = r<<11 | g << 5 | b;
-                *((unsigned short int*)(fbp + location)) = t;
-            }
+    //         if (vinfo.bits_per_pixel == 32) {
+    //             *(fbp + location) = 0;        //Blue
+    //             *(fbp + location + 1) = 0;    //Green
+    //             *(fbp + location + 2) = 0;    //Red
+    //             *(fbp + location + 3) = 0;    //transparency
+    //     //location += 4;
+    //         } else  { //assume 16bpp
+    //             int b = 0;
+    //             int g = 0;   
+    //             int r = 0;   
+    //             unsigned short int t = r<<11 | g << 5 | b;
+    //             *((unsigned short int*)(fbp + location)) = t;
+    //         }
 
-        }
+    //     }
 
     munmap(fbp, screensize);
     close(fbfd);
