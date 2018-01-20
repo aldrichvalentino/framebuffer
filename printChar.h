@@ -10,5 +10,6 @@
 #include <sys/ioctl.h>
 
 void printChar(char Character, int Red, int Green, int Blue, int axis, int ordinat);
+void clearScreen();
 
 #endif
