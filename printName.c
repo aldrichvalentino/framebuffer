@@ -5,14 +5,13 @@ void printName(char* Name, int Length, int Red, int Green, int Blue, int Y) {
 
     // print the characters
     for(i = 0; i < Length; i++){
-        printChar(Name[i], Red, Green, Blue, 173*(i), Y);
+        //printf("%d\n",90*i);
+        printChar(Name[i], Red, Green, Blue, 90*(i+1), Y);
+        
     }
 
     //delay
     for(i = 0; i < 2500000; i++);
 
-    // clear screen
-    for(i = 0; i < Length; i++){
-        printChar(' ', 0, 0, 0, 173*(i), Y);
-    }
+    clearScreen();
 }

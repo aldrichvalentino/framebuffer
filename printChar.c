@@ -86,6 +86,8 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
         }
     }
 
+    fclose(file);
+
     // Figure out where in memory to put the pixel
     // Fade in if vinfo.yres - (buffer) < ordinat
     // Fade out if ordinat < 0; maks ordinat = -buffer
@@ -125,7 +127,7 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
     }
 	
     //delay
-    for(timer = 0; timer < 10000000; timer++);
+    // for(timer = 0; timer < 10000000; timer++);
 
     munmap(fbp, screensize);
     close(fbfd);
@@ -170,7 +172,7 @@ void clearScreen() {
     }
 
     for (y = 0; y < vinfo.yres - 5; y++) {
-        for (x = 0; x < vinfo.xres - 5; x++) {
+        for (x = 0; x < vinfo.xres - 10; x++) {
             location = (x+vinfo.xoffset) * (vinfo.bits_per_pixel/8) +
                        (y+vinfo.yoffset) * finfo.line_length;
 

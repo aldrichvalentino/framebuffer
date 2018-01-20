@@ -7,14 +7,14 @@
 
 int main()
 {
-    int i;
+    int i, length;
     char *Name;
     int fbfd = 0;
     struct fb_var_screeninfo vinfo;
     struct fb_fix_screeninfo finfo;
     long int screensize = 0;
     char *fbp = 0;
-    int x = 0, y = 0, timer = 0;
+    int x = 0, y = 0;
     long int location = 0;
     
     // Open the file for reading and writing
@@ -49,38 +49,23 @@ int main()
         exit(4);
     }
     
-    
-    Name = (char*) malloc(4);
+    length = 5;
+    Name = (char*) malloc(length);
     Name[0] = 'a';
-    Name[1] = 'a';
+    Name[1] = 'b';
     Name[2] = 'a';
-    Name[3] = 'a';
-    
+    Name[3] = 'b';
+    Name[4] = 'a';
     
     for(y = vinfo.yres - 10; y >= -75; y--){
-        //printName(Name, 4, 016, 253, 150, y);
-        printChar('a', 255, 255, 255, 550, y);
-        clearScreen();
+        printName(Name, length, 255, 255, 255, y);
+        //printChar('a', 255, 255, 255, 550, y);
+        //clearScreen();
     }
-
-    // char character[50][50];
-    // for(x = 0; x < 50; x++){
-    //     for(y = 0; y < 50; y++){
-    //         if(x == 0 || x == 45 || y == 0 || y == 45)
-    //             character[x][y] = '*';
-    //     }
-    // }
-
-    // for(x = 0; x < 20; x++){
-    //     for(y = 0; y < 20; y++){
-    //        printf("%c", character[x][y]);
-    //     }
-    //     printf("\n");
-    // }
-
 
     // maks y 763
     // char 50 x 50
+    free(Name);
 
     return 0;
 }
