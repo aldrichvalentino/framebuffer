@@ -69,12 +69,42 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
         case 'd':
             file = fopen("characters/d.txt", "r");
             break;
-        case 'e':
-            file = fopen("characters/e.txt", "r");
-            break;
         case 'f':
             file = fopen("characters/f.txt", "r");
             break;
+        case 'g':
+            file = fopen("characters/g.txt", "r");
+            break;
+        case 'h':
+            file = fopen("characters/h.txt", "r");
+            break;
+        case 'i':
+            file = fopen("characters/i.txt", "r");
+            break;
+        case 'j':
+            file = fopen("characters/j.txt", "r");
+            break;
+        case 'l':
+            file = fopen("characters/l.txt", "r");
+            break;
+        case 'm':
+            file = fopen("characters/m.txt", "r");
+            break; 
+        case 'n':
+            file = fopen("characters/n.txt", "r");
+            break;
+        case 'o':
+            file = fopen("characters/o.txt", "r");
+            break;
+        case 'r':
+            file = fopen("characters/r.txt", "r");
+            break;
+        case 'y':
+            file = fopen("characters/y.txt", "r");
+            break;
+        case 'z':
+            file = fopen("characters/z.txt", "r");
+            break;  
     }
 
     if(file){

@@ -57,6 +57,7 @@ int main()
     Name[3] = 'b';
     Name[4] = 'a';
     
+    
     for(y = vinfo.yres - 10; y >= -75; y--){
         printName(Name, length, 255, 255, 255, y);
         printName(Name, length, 255, 255, 255, y - 90);
