@@ -7,7 +7,7 @@
 
 int main()
 {
-    int i, length;
+    int i, length, timer;
     char *Name;
     int fbfd = 0;
     struct fb_var_screeninfo vinfo;
@@ -60,8 +60,11 @@ int main()
     
     for(y = vinfo.yres - 10; y >= -75; y--){
         printName(Name, length, 255, 255, 255, y);
+        printName(Name, length, 255, 255, 255, y - 90);
         //printChar('a', 255, 255, 255, 550, y);
-        //clearScreen();
+        
+        for(timer = 0; timer < 2500000; timer++);
+        clearScreen();
     }
 
     // maks y 763

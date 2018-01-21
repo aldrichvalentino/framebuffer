@@ -11,7 +11,7 @@ void printName(char* Name, int Length, int Red, int Green, int Blue, int Y) {
     }
 
     //delay
-    for(i = 0; i < 2500000; i++);
+    //for(i = 0; i < 2500000; i++);
 
-    clearScreen();
+    //clearScreen();
 }
