@@ -99,6 +99,9 @@ void printChar(char Character, int Red, int Green, int Blue, int axis, int ordin
         case 'r':
             file = fopen("characters/r.txt", "r");
             break;
+        case 'u':
+            file = fopen("characters/u.txt", "r");
+            break;    
         case 'y':
             file = fopen("characters/y.txt", "r");
             break;

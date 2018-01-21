@@ -88,7 +88,7 @@ int main()
     Amuz = (char*) malloc(4);
     Amuz[0] = 'a';
     Amuz[1] = 'm';
-    Amuz[2] = 'a';
+    Amuz[2] = 'u';
     Amuz[3] = 'z';
 
     Icha = (char*) malloc(4);
