@@ -49,13 +49,15 @@ int main()
         exit(4);
     }
     
-    length = 5;
+    length = 7;
     Name = (char*) malloc(length);
     Name[0] = 'a';
-    Name[1] = 'b';
-    Name[2] = 'a';
-    Name[3] = 'b';
-    Name[4] = 'a';
+    Name[1] = 'l';
+    Name[2] = 'd';
+    Name[3] = 'r';
+    Name[4] = 'i';
+    Name[5] = 'c';
+    Name[6] = 'h';
     
     
     for(y = vinfo.yres - 10; y >= -75; y--){
